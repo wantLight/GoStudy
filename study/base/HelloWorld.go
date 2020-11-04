@@ -15,4 +15,8 @@ import "fmt"
 //  func main() 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数）。
 func main() {
 	fmt.Println("Hello, World!")
+
+	var c complex64 = 5 + 5i
+	//output: (5+5i)
+	fmt.Printf("Value is: %v", c)
 }
