@@ -14,7 +14,6 @@ func init() { //init 用于初始化一些参数，先于main执行
 		IdleTimeout: 120,
 		/**
 		Redis数据库：172.17.18.26 6379
-		密码：Szsti@1109
 		*/
 		Dial: func() (redis.Conn, error) {
 			dial, err := redis.Dial("tcp", "172.17.18.26:6379")
