@@ -22,7 +22,8 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// HandlerFunc调用之后的结果，这个类型默认就实现了ServeHTTP这个接口
-	http.HandleFunc("/", sayhelloName)       //设置访问的路由
+	http.HandleFunc("/", sayhelloName) //设置访问的路由
+	// 默认nil即为http.DefaultServeMux，通过DefaultServeMux.ServeHTTP函数来进行调度，遍历之前存储的map路由信息，和用户访问的URL进行匹配，以查询对应注册的处理函数
 	err := http.ListenAndServe(":9090", nil) //设置监听的端口
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)

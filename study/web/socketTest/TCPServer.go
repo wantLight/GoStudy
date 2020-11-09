@@ -10,12 +10,15 @@ import (
 )
 
 /**
+TCP server
+
 使用conn.Read()不断读取客户端发来的请求。由于我们需要保持与客户端的长连接，所以不能在读取完一次请求后就关闭连接。
 由于conn.SetReadDeadline()设置了超时，当一定时间内客户端无请求发送，conn便会自动关闭，下面的for循环即会因为连接已关闭而跳出。
 
 需要注意的是，request在创建时需要指定一个最大长度以防止flood attack；每次读取到请求处理完毕后，
 需要清理request，因为conn.Read()会将新读取到的内容append到原内容之后。
 */
+
 func main() {
 	service := ":1200"
 	tcpAddr, err := net.ResolveTCPAddr("tcp4", service)
@@ -36,6 +39,7 @@ func handleClient(conn net.Conn) {
 	request := make([]byte, 128)                          // set maxium request length to 128B to prevent flood attack
 	defer conn.Close()                                    // close connection before exit
 	for {
+		// conn.Read()不断读取客户端发来的请求
 		read_len, err := conn.Read(request)
 
 		if err != nil {
