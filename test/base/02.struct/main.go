@@ -17,13 +17,13 @@ func testStruct() {
 
 	// 声明指针并使用"零值"进行初始化。
 	pPerson1 := new(Person)
-	pPerson2 := Person{}
+	pPerson2 := &Person{}
 	fmt.Println(pPerson1)
 	fmt.Println(pPerson2)
 
 	// 声明指针并使用指定的值进行初始化。
 	pPerson3 := Person{"Tom", 30, "tom@gmail.com"}
-	pPerson4 := Person{Name: "Tom", Age: 30, Email: "tom@gmail.com"}
+	pPerson4 := &Person{Name: "Tom", Age: 30, Email: "tom@gmail.com"}
 	fmt.Println(pPerson3)
 	fmt.Println(pPerson4)
 
@@ -31,7 +31,6 @@ func testStruct() {
 	person := &Person{Name: "Tom", Age: 30, Email: "tom@gmail.com"}
 	fmt.Println(person) // 输出：{Tom 30 tom@gmail.com}
 
-	// 只有 &person 才会修改原先的值
 	pPerson := person
 	fmt.Println(pPerson) // 输出：&{Tom 30 tom@gmail.com}
 
@@ -71,5 +70,5 @@ func testStructMethod() {
 
 func main() {
 	testStruct()
-	//testStructMethod()
+	testStructMethod()
 }
