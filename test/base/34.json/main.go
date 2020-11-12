@@ -27,10 +27,11 @@ func main() {
 	spew.Printf("student1=[%v].\n", string(student1Bytes))
 
 	// 对象反序列化。
-	var student2 Student
+	//var student2 Student 这样写下面就要用 &student2
+	student2 := new(Student)
 	// 或使用：student2 := new(Student)
 	// 或使用：student2 := &Student{}
-	err = json.Unmarshal(student1Bytes, &student2)
+	err = json.Unmarshal(student1Bytes, student2)
 	if err != nil {
 		spew.Printf("Json unmarshal student1 fail. student1=[%v], err=[%v].\n", string(student1Bytes), err)
 		debug.PrintStack()

@@ -1,7 +1,9 @@
 package main
 
-import "os"
-import "strings"
+import (
+	"os"
+	"strings"
+)
 import "fmt"
 
 // 摘自：https://www.yiibai.com/go/golang-environment-variables.html
@@ -21,7 +23,7 @@ func main() {
 	// environment. This returns a slice of strings in the
 	// form `KEY=value`. You can `strings.Split` them to
 	// get the key and value. Here we print all the keys.
-	fmt.Println()
+	fmt.Println(os.Environ())
 	for _, e := range os.Environ() {
 		pair := strings.Split(e, "=")
 		fmt.Println(pair[0])
