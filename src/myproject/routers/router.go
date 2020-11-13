@@ -20,7 +20,7 @@ func init() {
 	多个不同的格式使用 ; 分割
 	多个 method 对应同一个 funcname，method 之间通过 , 来分割
 	*/
-	beego.Router("/my", &controllers.MyController{}, "get:GetMy")
+	beego.Router("/my", &controllers.MyController{}, "get:GetMy", "post:UpdateMy")
 }
 
 func page_not_found(rw http.ResponseWriter, r *http.Request) {

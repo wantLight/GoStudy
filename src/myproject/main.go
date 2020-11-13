@@ -14,6 +14,7 @@ func init() {
 	models.RegisterDB()
 }
 
+// 使用 Bee run 开启服务
 func main() {
 	// 开启 ORM 调试模式
 	orm.Debug = true

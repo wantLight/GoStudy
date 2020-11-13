@@ -10,13 +10,19 @@
 package main
 
 //  import "fmt" 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数。
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 //  func main() 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数）。
 func main() {
-	fmt.Println("Hello, World!")
 
-	var c complex64 = 5 + 5i
-	//output: (5+5i)
-	fmt.Printf("Value is: %v", c)
+	fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
+
+	//fmt.Println("Hello, World!")
+	//
+	//var c complex64 = 5 + 5i
+	////output: (5+5i)
+	//fmt.Printf("Value is: %v", c)
 }
