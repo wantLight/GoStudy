@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"context"
+	"fmt"
+)
 
 /**
 如果切片的容量小于1024个元素，那么扩容的时候slice的cap就翻番，乘以2；一旦元素个数超过1024个元素，增长因子就变成1.25，即每次增加原来容量的四分之一。
@@ -17,4 +20,6 @@ func main() {
 	newSlice := AddElement(slice, 4)
 	fmt.Println("容量：", cap(newSlice), " 长度", len(newSlice))
 	fmt.Println(&slice[0] == &newSlice[0])
+
+	context.Background()
 }
