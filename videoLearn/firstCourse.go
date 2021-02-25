@@ -24,10 +24,14 @@ func init() { // initialization of package
 }
 
 func main() {
-	var a int
-	Func1()
-	// ...
-	fmt.Println(a)
+	sm := make([]map[int]string, 5, 10)
+	for i := range sm {
+		sm[i] = make(map[int]string)
+		sm[i][1] = "ok"
+		fmt.Print(sm[i])
+	}
+	fmt.Println("------------")
+	fmt.Println(sm)
 }
 
 func (t T) Method1() {
