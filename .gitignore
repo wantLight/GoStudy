@@ -19,3 +19,8 @@
 *.iws
 *.iml
 *.ipr
+
+bin
+/src/gopkg.in/
+/pkg/
+/src/github.com/
